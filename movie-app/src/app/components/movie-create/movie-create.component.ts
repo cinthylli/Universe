@@ -1,57 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormControl, FormGroup } from "@angular/forms";
-import { MovieService } from "../../services/movie.service";
 import { Router } from "@angular/router";
+import { MovieService } from "../../services/movie.service";
+
 
 @Component({
   selector: 'app-movie-create',
   templateUrl: './movie-create.component.html',
   styleUrls: ['./movie-create.component.css']
 })
-export class MovieCreateComponent implements OnInit {
-  isSubmitted = false;
-  movie: FormGroup;
 
-  // Genre Names
-  Genre: any = ["Action", "Adventure", "Crime", "Children's", "Comedy", "Crime", "Documentary", "Drama", "Fantasy", "Mistery", "Sci-Fi", "Thriller"];
-  selectedGenres = [];
-  assignedTitle: "";
+export class MovieCreateComponent implements OnInit {
 
   constructor(
-    public fb: FormBuilder,
-    private movieService: MovieService,
-    private router: Router) { }
-
-/*########### Form ###########*/
-  registrationForm = this.fb.group({
-    genreName: ['', [Validators.required]]
-  })
-
-  get genreName() {
-    return this.registrationForm.get('genreName');
-  }
+    private router: Router,
+    private movieService: MovieService
+    ) { }
 
   ngOnInit() {
-    this.registrationForm = this.fb.group({
-      title: ['', Validators.required],
-      genreName: ['', Validators.required]
-    })
   }
 
-  onSubmit() {
-    this.isSubmitted = true;
-    if (!this.registrationForm.valid) {
-      return false;
-    } else {
-      this.selectedGenres = this.registrationForm.value.genreName;
-      this.assignedTitle = this.registrationForm.value.title;
-      this.movieService.createMovie(this.assignedTitle, this.selectedGenres)
-        .subscribe(
-          res => {
-            this.router.navigate(['/items']);
-          }, error => console.log(error)
-        )
-    }
+  uploadMovie(title: HTMLTextAreaElement, genre: HTMLSelectElement){
+    this.movieService.createMovie(title.value, genre.value).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    )
   }
-
 }

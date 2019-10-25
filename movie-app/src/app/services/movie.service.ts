@@ -8,7 +8,6 @@ import { v4 as uuid } from 'uuid';
 })
 export class MovieService {
   movie: Movie;
-  currentId: string;
   API_ENDPOINT = "/items/";
 
   constructor(private httpClient: HttpClient) { }
@@ -25,7 +24,7 @@ export class MovieService {
     return this.httpClient.delete(this.API_ENDPOINT + id)
   }
 
-  createMovie(pTitle: string, pGenre: string[]) {
+  createMovie(pTitle: string, pGenre: string) {
     this.movie = {
       id: uuid(),
       name : pTitle,
@@ -34,7 +33,7 @@ export class MovieService {
     return this.httpClient.post(this.API_ENDPOINT, this.movie);
   }
 
-  editMovie(pId: string, pTitle: string, pGenre: string[]) {
+  editMovie(pId: string, pTitle: string, pGenre: string) {
     this.movie = {
       id: pId,
       name : pTitle,

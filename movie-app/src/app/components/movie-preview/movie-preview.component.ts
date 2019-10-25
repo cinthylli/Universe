@@ -11,7 +11,7 @@ import { Movie } from "../../interfaces/Movie";
 })
 export class MoviePreviewComponent implements OnInit {
   Genre: any = ["Action", "Adventure", "Crime", "Children's", "Comedy", "Crime", "Documentary", "Drama", "Fantasy", "Mistery", "Sci-Fi", "Thriller"];
-  selectedGenres: string[];
+  selectedGenres: string;
   assignedTitle: string;
   assignedId: string;
 
