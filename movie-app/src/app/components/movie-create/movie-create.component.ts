@@ -21,7 +21,7 @@ export class MovieCreateComponent implements OnInit {
 
   uploadMovie(title: HTMLTextAreaElement, genre: HTMLSelectElement){
     this.movieService.createMovie(title.value, genre.value).subscribe(
-      res => console.log(res),
+      res => { this.router.navigate(['/']) },
       err => console.log(err)
     )
   }
