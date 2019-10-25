@@ -1,0 +1,11 @@
+.bg-dark tr th {
+  color:white;
+}
+.movieData{
+  cursor: pointer;
+}
+
+.bold{
+  font-weight: bolder;
+}
+

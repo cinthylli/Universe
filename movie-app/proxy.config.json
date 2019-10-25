@@ -1,0 +1,8 @@
+
+{
+  "/items/*":{
+    "target": "http://35.232.123.59:4000/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

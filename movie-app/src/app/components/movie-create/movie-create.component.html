@@ -1,0 +1,25 @@
+<div class="col-lg-4 mx-auto">
+  <div class="card text-white bg-info mb-3">
+    <div class="card-header">
+      Upload Movie
+    </div>
+    <div class="card-body">
+      <form  [formGroup]="registrationForm" (submit)="onSubmit()">
+        <div class="form-group">
+          <textarea formControlName="title" rows="1" required placeholder="Movie's Title" #title></textarea>
+        </div>
+        <div class="form-group">
+          <select multiple formControlName="genreName">
+            <option value="">Select genres</option>
+            <option *ngFor="let genre of Genre" [ngValue]="genre" >{{genre}}
+            </option>
+          </select>
+          <div class="invalid-feedback" *ngIf="isSubmitted && genreName">
+            <sup>*</sup>Please enter the genres
+          </div>
+        </div>
+        <button type="submit"  class="btn btn-primary btn-block">Upload Movie</button>
+      </form>
+    </div>
+  </div>
+</div>
