@@ -1,5 +1,8 @@
 import { Pipe, PipeTransform } from "@angular/core";
 import { Movie } from '../../interfaces/Movie';
+import { identifierModuleUrl } from '@angular/compiler';
+
+// This pipe allows to search movies by id, title and genre
 
 @Pipe({
   name: "search"
@@ -16,7 +19,7 @@ export class SearchPipe implements PipeTransform {
     }
 
     movieSearched.toLowerCase();
-    return movieList.filter((movies) => {
+    return movieList.filter((movies: Movie) => {
       return JSON.stringify(movies).toLowerCase().includes(movieSearched);
     })
 

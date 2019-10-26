@@ -3,6 +3,11 @@ import { HttpClient , HttpHeaders} from "@angular/common/http";
 import { Movie }  from '../interfaces/Movie';
 import { v4 as uuid } from 'uuid';
 
+// This service helps to conect with the API
+// http://35.232.123.59:4000 . I use proxy.conf.json
+// because appear a error with CORS "No access control to origin"
+
+
 @Injectable({
   providedIn: 'root'
 })

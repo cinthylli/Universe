@@ -3,6 +3,11 @@ import { Movie } from "../../interfaces/Movie";
 import { MovieService } from '../../services/movie.service';
 import { Router } from "@angular/router";
 
+// This component allows :
+// -to show the movies and their characteristics and search by:
+//  id, title and genre.
+// - delete a movie or select a movie to edit
+
 
 @Component({
   selector: 'app-movie-list',
@@ -15,10 +20,7 @@ export class MovieListComponent implements OnInit {
   query: string = '';
 
   constructor(private movieService: MovieService,
-    private router: Router) {
-
-
-               }
+    private router: Router) { }
 
   ngOnInit() {
     this.movieService.getAllMovies().subscribe(

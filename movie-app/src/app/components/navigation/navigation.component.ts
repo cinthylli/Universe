@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../../services/movie.service';
+
+// This components links to:
+// -List of Movies
+// - Upgrade movie
 
 @Component({
   selector: 'app-navigation',
@@ -6,7 +11,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  query: string = '';
   constructor() { }
 
   ngOnInit() {
