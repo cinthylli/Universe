@@ -10,7 +10,7 @@ import { MovieCreateComponent } from './components/movie-create/movie-create.com
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
-
+import { SearchPipe } from "../app/components/pipes/search";
 
 import { MovieService } from "./services/movie.service";
 
@@ -20,7 +20,8 @@ import { MovieService } from "./services/movie.service";
     NavigationComponent,
     MovieListComponent,
     MoviePreviewComponent,
-    MovieCreateComponent
+    MovieCreateComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

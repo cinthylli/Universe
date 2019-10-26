@@ -1,23 +1,26 @@
-
-  <table class="table  table-hover table-light">
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control   mr-sm-1 animated zoomInLeft " type="text" placeholder="Search by Title, Id or Genre" [(ngModel)]="query" [ngModelOptions]="{standalone: true}"/>
+    <button class="btn btn-secondary my-2 my-sm-0  color-change-2x" type="submit">Search</button>
+  </form>
+  <table class="table table-striped  table-hover table-light">
     <thead class="bg-dark ">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Id</th>
-        <th scope="col">Title</th>
-        <th scope="col">Genre</th>
-        <th scope="col">Delete</th>
-        <th scope="col">Edit</th>
+        <th  class="title_font" scope="col">#</th>
+        <th  class="title_font" scope="col">Id</th>
+        <th  class="title_font" scope="col">Title</th>
+        <th  class="title_font" scope="col">Genre</th>
+        <th  class="title_font" scope="col">Delete</th>
+        <th  class="title_font" scope="col">Edit</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="movieData"  *ngFor="let movie of movies; index as i">
+      <tr class="movieData"  *ngFor="let movie of movies | search:query ; index as i">
           <td class="movieDataRow" scope="row" >{{i + 1}}</td>
           <td class="movieDataRow" scope="row" >{{movie.id}}</td>
           <td class="movieDataRow bold" scope="row" >{{movie.name}}</td>
           <td class="movieDataRow" scope="row" >{{movie.genre}}</td>
-          <td><button class="btn btn-danger" (click)="deleteMovie(movie.id)">Delete</button></td>
-          <td><button class="btn btn-warning" (click)="selectedMovie(movie.id)">Edit</button></td>
+          <td><button class="btn btn-danger shadow-drop-br" (click)="deleteMovie(movie.id)">Delete</button></td>
+          <td><button class="btn btn-warning shadow-drop-br" (click)="selectedMovie(movie.id)">Edit</button></td>
       </tr>
     </tbody>
   </table>

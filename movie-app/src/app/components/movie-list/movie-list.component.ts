@@ -12,9 +12,13 @@ import { Router } from "@angular/router";
 export class MovieListComponent implements OnInit {
 
   movies: Movie[] = [];
+  query: string = '';
 
   constructor(private movieService: MovieService,
-              private router: Router) { }
+    private router: Router) {
+
+    
+               }
 
   ngOnInit() {
     this.movieService.getAllMovies().subscribe(

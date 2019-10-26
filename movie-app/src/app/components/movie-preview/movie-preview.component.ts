@@ -24,7 +24,10 @@ export class MoviePreviewComponent implements OnInit {
       this.id = params['id'];
       this.movieService.getMovie(this.id)
         .subscribe(
-        res => this.movie = res,
+          res => {
+            console.log(`Esta es la pelicula a editar ${res}`);
+            this.movie = res
+          },
         err => console.log(err)
       )
     })

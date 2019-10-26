@@ -1,5 +1,5 @@
 <div class="row" *ngIf="!movie ; else main">
-  <h1>Loading...</h1>
+ <img class="rounded mx-auto d-block img-fluid" src="../../../assets/img/mirage-waiting.png" alt="" srcset="">
 </div>
 
 <ng-template #main>
@@ -11,7 +11,7 @@
         <div class="card-body">
             <form (submit)="editAndUploadMovie(title,genre)" >
                 <div class="form-group">
-                    <textarea class="form-control" rows="2" spellcheck="true" placeholder="Title" required #title [value]="movie.name"></textarea>
+                    <textarea class="form-control" rows="2" spellcheck="true" placeholder="Title" required #title [value]="movie.name" ></textarea>
                 </div>
               <div class="form-group">
                 <select  class="form-control"  required #genre [value]="movie.genre">

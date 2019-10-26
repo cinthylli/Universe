@@ -21,7 +21,7 @@ export class MovieService {
   }
 
   deleteMovie(id: string) {
-    return this.httpClient.delete<Movie>(this.API_ENDPOINT + id)
+    return this.httpClient.delete<Movie>(this.API_ENDPOINT +   id)
   }
 
   createMovie(pTitle: string, pGenre: string) {
