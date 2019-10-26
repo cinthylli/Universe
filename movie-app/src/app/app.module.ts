@@ -11,7 +11,6 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { SearchPipe } from "../app/components/pipes/search";
-
 import { MovieService } from "./services/movie.service";
 
 @NgModule({

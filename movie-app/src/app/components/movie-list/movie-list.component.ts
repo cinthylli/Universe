@@ -17,7 +17,7 @@ export class MovieListComponent implements OnInit {
   constructor(private movieService: MovieService,
     private router: Router) {
 
-    
+
                }
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class MovieListComponent implements OnInit {
   }
   selectedMovie(id: string) {
     console.log(id);
-    this.router.navigate(['items/',id]);
+    this.router.navigate(['preview-movie/',id]);
     console.log(`Estoy en la pagina ${id}`);
 
   }

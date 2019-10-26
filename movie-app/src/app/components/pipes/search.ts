@@ -12,7 +12,6 @@ export class SearchPipe implements PipeTransform {
     }
 
     if (!movieSearched) {
-      console.log('No has inclui')
       return movieList;
     }
 

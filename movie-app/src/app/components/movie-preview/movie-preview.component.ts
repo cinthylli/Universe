@@ -23,25 +23,21 @@ export class MoviePreviewComponent implements OnInit {
     this.activateRouter.params.subscribe(params => {
       this.id = params['id'];
       this.movieService.getMovie(this.id)
-        .subscribe(
-          res => {
-            console.log(`Esta es la pelicula a editar ${res}`);
-            this.movie = res
-          },
-        err => console.log(err)
-      )
+        .subscribe( res => this.movie = res,  err => console.log(err))
     })
   }
 
-
-
-  editAndUploadMovie(title: HTMLTextAreaElement, genre: HTMLSelectElement) {
-    this.movieService.editMovie(this.id, title.value, genre.value).subscribe(
-      res => {
-        console.log(res);
-        this.router.navigate(['/']);
-      },
-      err => console.log(err)
-    )
+  editAndUploadMovie(title: HTMLTextAreaElement, genre: HTMLSelectElement): boolean{
+    this.movieService.getMovie(this.id)
+      .subscribe(
+        res => {
+          console.log("Esta es la pelicula a editar: ")
+          console.log(res);
+          this.router.navigate(['preview-movie/']);
+        }
+        , error => console.log(error)
+    );
+    return false;
   }
+
 }

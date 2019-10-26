@@ -9,10 +9,10 @@ import { MoviePreviewComponent } from "./components/movie-preview/movie-preview.
 
 
 const routes: Routes = [
-  { path: 'items/', component: MovieListComponent },
-  { path: 'items/new', component: MovieCreateComponent },
-  { path: 'items/:id', component: MoviePreviewComponent },
-   { path: '', redirectTo: 'items/', pathMatch:'full'}
+  { path: '', redirectTo: 'movies', pathMatch:'full'},
+  { path: 'movies', component: MovieListComponent },
+  { path: 'create-movie', component: MovieCreateComponent },
+  { path: 'preview-movie/:id', component: MoviePreviewComponent }
 ];
 
 @NgModule({
