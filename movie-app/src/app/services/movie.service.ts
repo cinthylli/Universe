@@ -21,16 +21,17 @@ export class MovieService {
   }
 
   deleteMovie(id: string) {
-    return this.httpClient.delete(this.API_ENDPOINT + id)
+    return this.httpClient.delete<Movie>(this.API_ENDPOINT + id)
   }
 
   createMovie(pTitle: string, pGenre: string) {
+
     this.movie = {
       id: uuid(),
       name : pTitle,
       genre: pGenre
     }
-    return this.httpClient.post(this.API_ENDPOINT, this.movie);
+    return this.httpClient.post<Movie>(this.API_ENDPOINT, this.movie);
   }
 
   editMovie(pId: string, pTitle: string, pGenre: string) {
@@ -39,7 +40,7 @@ export class MovieService {
       name : pTitle,
       genre: pGenre
     }
-    return this.httpClient.put(this.API_ENDPOINT, this.movie);
+    return this.httpClient.put<Movie>(this.API_ENDPOINT + pId, this.movie);
   }
 
 }

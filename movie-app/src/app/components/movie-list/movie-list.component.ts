@@ -24,7 +24,7 @@ export class MovieListComponent implements OnInit {
   }
   selectedMovie(id: string) {
     console.log(id);
-    this.router.navigate(['items/', id]);
+    this.router.navigate(['items/',id]);
     console.log(`Estoy en la pagina ${id}`);
 
   }
@@ -33,7 +33,7 @@ export class MovieListComponent implements OnInit {
     this.movieService.deleteMovie(id).subscribe(
       res => {
         console.log(res);
-        this.router.navigate(['items/'])
+        this.router.navigate(['/'])
       },
       err => console.log(err)
     )

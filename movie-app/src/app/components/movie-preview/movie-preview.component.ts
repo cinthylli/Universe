@@ -22,16 +22,23 @@ export class MoviePreviewComponent implements OnInit {
   ngOnInit() {
     this.activateRouter.params.subscribe(params => {
       this.id = params['id'];
-      this.movieService.getMovie(this.id).subscribe(
-        res => console.log(res),
+      this.movieService.getMovie(this.id)
+        .subscribe(
+        res => this.movie = res,
         err => console.log(err)
       )
     })
   }
 
-  
+
 
   editAndUploadMovie(title: HTMLTextAreaElement, genre: HTMLSelectElement) {
-
+    this.movieService.editMovie(this.id, title.value, genre.value).subscribe(
+      res => {
+        console.log(res);
+        this.router.navigate(['/']);
+      },
+      err => console.log(err)
+    )
   }
 }
