@@ -17,6 +17,7 @@ export class MovieService {
   }
 
   getMovie(id: string) {
+    console.log(`Esta es la ruta ${this.API_ENDPOINT}/${id}`);
     return this.httpClient.get<Movie>(this.API_ENDPOINT + "/" + id);
   }
 
