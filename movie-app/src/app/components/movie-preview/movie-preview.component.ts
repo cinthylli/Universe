@@ -11,7 +11,7 @@ import { Movie } from "../../interfaces/Movie";
 export class MoviePreviewComponent implements OnInit {
 
   id: string;
-  movie;
+  movie: Movie;
 
   constructor(
     private router: Router,
@@ -23,13 +23,7 @@ export class MoviePreviewComponent implements OnInit {
     this.activateRouter.params.subscribe(params => {
       this.id = params['id'];
       this.movieService.getMovie(this.id)
-        .subscribe(
-          res => {
-            this.movie = res;
-            console.log(`Esta es la pelicula precargada${this.movie}`);
-          },
-        err => console.log(err)
-      )
+        .subscribe( res => this.movie = res,  err => console.log(err))
     })
   }
 
