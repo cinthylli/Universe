@@ -14,3 +14,9 @@ npm install --open
 ng start
 
 ```
+
+# 3. Services
+- Movies List :
+  - This service helps you to find a movie by id, title or genre, to see the result in a table and delete or edit the movie's information.
+- Upload Movie:
+  - With this service, you can update the movie's information like title or genre. 
