@@ -11,7 +11,7 @@ In order to create run demo app you need to run the following commands:
 ```
 npm install --open
 
-ng start
+npm start
 
 ```
 
